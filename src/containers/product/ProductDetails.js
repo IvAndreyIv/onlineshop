@@ -7,7 +7,6 @@ import {
   removeSelectedProduct,
 } from "../../redux/actions/productsActions";
 
-
 const ProductDetails = () => {
   const { productId } = useParams();
   let product = useSelector((state) => state.product);
@@ -51,6 +50,7 @@ const ProductDetails = () => {
                   <div className="hidden content">
                   </div>
                   <div className="visible content">Add to Cart</div>
+
                 </div>
               </div>
             </div>

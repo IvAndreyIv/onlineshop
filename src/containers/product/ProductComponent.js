@@ -1,25 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-
-import { IconButton } from '@material-ui/core'
+import { CardActions, IconButton } from '@material-ui/core'
 import { AddShoppingCart } from '@material-ui/icons'
 
-import { onAddToCart } from './productsadd'
-
 const ProductComponent = () => {
+
   const products = useSelector((state) => state.allProducts.products);
-  const renderList = products.map((product) => {
+  const renderList = products.map((product, { onAddToCart }) => {
     const { id, title, image, price, category } = product;
 
     return (
 
       <div className="four wide column" key={id}>
-
-        <IconButton aria-label='Add to Card' onClick={() => onAddToCart(product.id, 1)}>
-          <AddShoppingCart />
-        </IconButton>
-
         <Link to={`/product/${id}`}>
           <div className="ui link cards">
             <div className="card">
@@ -34,9 +27,11 @@ const ProductComponent = () => {
             </div>
           </div>
         </Link>
-
-
-
+        <CardActions >
+          <IconButton aria-label='Add to Card' onClick={() => onAddToCart(product.id, 1)}>
+            <AddShoppingCart />
+          </IconButton>
+        </CardActions>
       </div>
     );
   });

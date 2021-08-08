@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import { ShoppingCart } from '@material-ui/icons';
 import { IconButton, Badge } from '@material-ui/core'
 
-
-
-
-
 const Header = ({ totalItems }) => {
   return (
     <div className="ui fixed menu">
